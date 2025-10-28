@@ -1,0 +1,163 @@
+Script started on Mon Sep 29 14:45:42 2025
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                            [0m[27m[24m[Jbryanerickson@MacBook-Air-370 WarehouseProject % [K[?2004hexitjava Mainm[3Cc Main.java WishlistItem.java Wishlist.java[?2004l
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                            [0m[27m[24m[Jbryanerickson@MacBook-Air-370 WarehouseProject % [K[?2004hjavac Main.java WishlistItem.java Wishlist.java[47Dexit                                           [43Djava Main[?2004l
+Here are your options:
+1: Add an item to a wishlist
+2: Check if an item is within a wishlist
+3: Get an item from a wishlist
+4: View all items in a wishlist
+5: Add a new wishlist
+6: End the program
+Enter a selection:
+4
+Enter the client ID:
+27
+1 Apple 5
+2 Orange 10
+3 Onion 3
+Here are your options:
+1: Add an item to a wishlist
+2: Check if an item is within a wishlist
+3: Get an item from a wishlist
+4: View all items in a wishlist
+5: Add a new wishlist
+6: End the program
+Enter a selection:
+1
+Enter the client ID:
+27
+Add a new item to the wishlist:
+4
+Cherry
+67
+Here are your options:
+1: Add an item to a wishlist
+2: Check if an item is within a wishlist
+3: Get an item from a wishlist
+4: View all items in a wishlist
+5: Add a new wishlist
+6: End the program
+Enter a selection:
+4
+Enter the client ID:
+27
+1 Apple 5
+2 Orange 10
+3 Onion 3
+4 Cherry 67
+Here are your options:
+1: Add an item to a wishlist
+2: Check if an item is within a wishlist
+3: Get an item from a wishlist
+4: View all items in a wishlist
+5: Add a new wishlist
+6: End the program
+Enter a selection:
+2
+Enter client id:
+27
+Enter product id:
+3
+Item found
+Here are your options:
+1: Add an item to a wishlist
+2: Check if an item is within a wishlist
+3: Get an item from a wishlist
+4: View all items in a wishlist
+5: Add a new wishlist
+6: End the program
+Enter a selection:
+2
+Enter client id:
+5
+Id not found
+Here are your options:
+1: Add an item to a wishlist
+2: Check if an item is within a wishlist
+3: Get an item from a wishlist
+4: View all items in a wishlist
+5: Add a new wishlist
+6: End the program
+Enter a selection:
+2
+Enter client id:
+27
+Enter product id:
+5
+Item not found
+Here are your options:
+1: Add an item to a wishlist
+2: Check if an item is within a wishlist
+3: Get an item from a wishlist
+4: View all items in a wishlist
+5: Add a new wishlist
+6: End the program
+Enter a selection:
+3
+Enter client id:
+27
+Enter product id:
+4
+4 Cherry 67
+Here are your options:
+1: Add an item to a wishlist
+2: Check if an item is within a wishlist
+3: Get an item from a wishlist
+4: View all items in a wishlist
+5: Add a new wishlist
+6: End the program
+Enter a selection:
+5
+Enter the client ID for the new wishlist:
+890
+Here are your options:
+1: Add an item to a wishlist
+2: Check if an item is within a wishlist
+3: Get an item from a wishlist
+4: View all items in a wishlist
+5: Add a new wishlist
+6: End the program
+Enter a selection:
+1
+Enter the client ID:
+28
+Client ID not found
+Here are your options:
+1: Add an item to a wishlist
+2: Check if an item is within a wishlist
+3: Get an item from a wishlist
+4: View all items in a wishlist
+5: Add a new wishlist
+6: End the program
+Enter a selection:
+1
+Enter the client ID:
+890
+Add a new item to the wishlist:
+2 4
+Cherry
+45
+Here are your options:
+1: Add an item to a wishlist
+2: Check if an item is within a wishlist
+3: Get an item from a wishlist
+4: View all items in a wishlist
+5: Add a new wishlist
+6: End the program
+Enter a selection:
+4
+Enter the client ID:
+890
+4 Cherry 45
+Here are your options:
+1: Add an item to a wishlist
+2: Check if an item is within a wishlist
+3: Get an item from a wishlist
+4: View all items in a wishlist
+5: Add a new wishlist
+6: End the program
+Enter a selection:
+6
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                            [0m[27m[24m[Jbryanerickson@MacBook-Air-370 WarehouseProject % [K[?2004heexit[?2004l
+
+Script done on Mon Sep 29 14:48:14 2025
