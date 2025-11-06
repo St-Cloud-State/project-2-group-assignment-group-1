@@ -18,6 +18,10 @@ public class Wishlist {
         this.wantedItems = list;
     }
 
+    public Wishlist(){
+        this(0, new ArrayList<>());
+    }
+
     public boolean insertItem(WishlistItem newItem) {
         this.wantedItems.add(newItem);
         return true;
@@ -39,6 +43,10 @@ public class Wishlist {
         while (wish.hasNext()){
             System.out.println(wish.next());
         }
+    }
+
+    public ArrayList<WishlistItem> getItems(){
+        return wantedItems;
     }
 
     public static void wishlist(String[] args) {

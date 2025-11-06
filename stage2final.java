@@ -83,7 +83,7 @@ public class stage2final {
                     System.out.println("Who's wishlist are we processing?(use id)");
                     String nextWish = menuInput.nextLine();
                     Client clientToProcess = c_list.getClient(nextWish);
-                    List<WishlistItem> wishlist = clientToProcess.getWishlist();
+                    Wishlist wishlist = clientToProcess.getWishlist();
                     if (wishlist.isEmpty()) {
                         System.out.println("break1");
                         break;
