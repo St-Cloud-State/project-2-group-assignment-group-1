@@ -1,4 +1,4 @@
-//package pro1;
+//package Pro1_Warehouse;
 
 public class Product {
     // Fields
@@ -6,6 +6,7 @@ public class Product {
     private String id;
     private double price;
     private double stock;
+    private static int counter = 1;
     private Waitlist waitlist = new Waitlist();// Each product has its own waitlist
 
     // Constructor (id is auto-generated)
@@ -13,7 +14,7 @@ public class Product {
         this.name = name;
         this.price = price;
         this.stock = stock;
-        this.id = java.util.UUID.randomUUID().toString(); // generate a unique ID
+        this.id = "P" + counter++; // generate a unique ID
     }
 
     // Getters
@@ -55,18 +56,11 @@ public class Product {
         waitlist.addItem(clientId, this.id, quantity);
     }
 
-    public void processWaitlist(int qty) {
-        int remaining = getWaitlist().fulfillItems(qty);
-        setStock(getStock() + remaining);
-    }
-
-
     // Print product info
     @Override
     public String toString() {
         return "Product[ID=" + id + ", Name=" + name + ", Price=" + price + ", Stock=" + stock + "]";
     }
 }
-
 
 
