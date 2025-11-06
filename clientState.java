@@ -46,7 +46,10 @@ public class clientState extends wareHouseState {
     }
 
     public void showClientTransactions() {
-        //Needs client invoices to be able to complete this section
+        String userId = wareHouseContext.instance().getUser();
+        Client currentClient = Warehouse.instance().searchClient(userId);
+
+        currentClient.printTransactions();
     }
 
     //Adds a product to the wishlist, product must be in productlist
@@ -104,6 +107,9 @@ public class clientState extends wareHouseState {
             if (product.getStock() >= qty) {
                 product.setStock(product.getStock() - qty);
                 currentClient.addToBalance((float) (-totalCost));
+
+                Transaction newTransaction = new Transaction("Order placed for " + product.getName(), -totalCost);
+                currentClient.recordTransaction(newTransaction);
             } else {
                 int available = (int) product.getStock();
                 int waitQty = qty - available;
@@ -111,11 +117,18 @@ public class clientState extends wareHouseState {
                 if (available > 0) {
                     product.setStock(0);
                     currentClient.addToBalance((float) (-(available * product.getPrice())));
+                    Transaction partialTransaction = new Transaction("Partial Order for " + product.getName(), -(available * product.getPrice()));
+                    currentClient.recordTransaction(partialTransaction);
                 }
                 Waitlist waitlist_temp = product.getWaitlist();
                 waitlist_temp.addItem(currentClient.getId(), product.getID(), waitQty);
+
+                Transaction waitTransaction = new Transaction("Waitlisted for " + product.getName(), 0.0);
+                currentClient.recordTransaction(waitTransaction);
+
             }
         }
+       
         System.out.println("Wishlist Processed");
     }
 
