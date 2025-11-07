@@ -36,5 +36,8 @@ public ProductList getProductList(){
     return p_list;
 }
 
-
+public ClientList getClientList()
+{
+    return c_list;
+}
 }

@@ -28,10 +28,13 @@ public class loginState extends wareHouseState {
         
         String userId = clientScanner.next();
 
+        System.out.println("Enter the User Password as well:");
+        
+        String login = clientScanner.next();
         //Checks to see if the client exists within the client list
         if(Warehouse.instance().searchClient(userId) != null){
             System.out.println("Client Found");
-            wareHouseContext.instance().setLogin(wareHouseContext.IsClient);
+            wareHouseContext.instance().setLogin(login);
             wareHouseContext.instance().setUser(userId);
             
             //Moves the fsm to the client state

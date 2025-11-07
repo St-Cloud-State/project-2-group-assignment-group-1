@@ -101,7 +101,7 @@ public class ManagerState extends wareHouseState {
 
     private void becomeClerk() {
         System.out.println("Switching to clerk view...");
-        wareHouseContext.instance().setLogin(wareHouseContext.IsClerk);
+        wareHouseContext.instance().setLogin("0");
         wareHouseContext.instance().changeState(2); // ClerkState index (adjust per context matrix)
     }
 }

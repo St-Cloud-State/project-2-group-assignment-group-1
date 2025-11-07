@@ -106,7 +106,7 @@ public class ClerkState extends wareHouseState {
         String clientId = scanner.nextLine();
 
         if (warehouse.searchClient(clientId) != null) {
-            wareHouseContext.instance().setLogin(wareHouseContext.IsClient);
+            wareHouseContext.instance().setLogin("0");
             wareHouseContext.instance().setUser(clientId);
             System.out.println("Switching to client view...");
             wareHouseContext.instance().changeState(1); // ClientState

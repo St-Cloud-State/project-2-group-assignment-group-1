@@ -80,43 +80,7 @@ public class stage2final {
                     System.out.println("Product added to wish list");
                     break;
                 case 6:
-                    System.out.println("Who's wishlist are we processing?(use id)");
-                    String nextWish = menuInput.nextLine();
-                    Client clientToProcess = c_list.getClient(nextWish);
-                    Wishlist wishlist = clientToProcess.getWishlist();
-                    if (wishlist.isEmpty()) {
-                        System.out.println("break1");
-                        break;
-
-                    }
-                    for (WishlistItem item : wishlist) {
-                        Product product = p_list.search(item.getItemName());
-                        if (product == null) {
-                            continue;
-                        }
-
-                        int qty = item.getQuantity();
-                        double totalCost = qty * product.getPrice();
-
-                        if (product.getStock() >= qty) {
-                            product.setStock(product.getStock() - qty);
-                            clientToProcess.addToBalance((float) (-totalCost));
-                        } else {
-                            int available = (int) product.getStock();
-                            int waitQty = qty - available;
-
-                            if (available > 0) {
-                                product.setStock(0);
-                                clientToProcess.addToBalance((float) (-(available * product.getPrice())));
-                            }
-                            Waitlist waitlist_temp = product.getWaitlist();
-                            waitlist_temp.addItem(clientToProcess.getId(), product.getID(), waitQty);
-                        }
-                    }
-
-                    wishlist.clear();
-                    System.out.println("Wishlist processed");
-                    break;
+                    
                 case 7:
                     System.out.println("Which product are we checking?");
                     String list_needed = menuInput.nextLine();
