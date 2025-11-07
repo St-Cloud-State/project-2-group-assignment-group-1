@@ -23,6 +23,15 @@ public class ProductList {
         return null;
     }
 
+    public Product searchID(String id){
+        for (Product p : productsList) {
+            if (p.getID().equals(id)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
     // Add a single new product
     public Product addProduct(String name, double price, double stock) {
         Product newProduct = new Product(name, price, stock);

@@ -46,6 +46,7 @@ public class clientState extends wareHouseState {
     }
 
     public void showClientTransactions() {
+        System.out.println("I will show client transactions");
         String userId = wareHouseContext.instance().getUser();
         Client currentClient = Warehouse.instance().searchClient(userId);
 
@@ -108,6 +109,8 @@ public class clientState extends wareHouseState {
                 product.setStock(product.getStock() - qty);
                 currentClient.addToBalance((float) (-totalCost));
 
+                
+
                 Transaction newTransaction = new Transaction("Order placed for " + product.getName(), -totalCost);
                 currentClient.recordTransaction(newTransaction);
             } else {
@@ -128,7 +131,7 @@ public class clientState extends wareHouseState {
 
             }
         }
-       
+        currentClient.printTransactions();
         System.out.println("Wishlist Processed");
     }
 

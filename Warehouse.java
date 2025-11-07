@@ -14,8 +14,8 @@ public class Warehouse {
 
     // Private constructor for singleton
     private Warehouse() {
-        productList = ProductList.instance();
-        clientList = ClientList.instance();
+        /* productList = ProductList.instance();
+        clientList = ClientList.instance(); */
     }
 
     // Singleton accessor
@@ -29,12 +29,8 @@ public class Warehouse {
     // ---------------- Core Functionalities ----------------
 
     /** Add a new product to the warehouse */
-    public Product insertProduct(String name, double quantity, double price) {
-        Product product = new Product(name, quantity, price);
-        if (productList.addProduct(name, quantity, price)) {
-            return product;
-        }
-        return null;
+    public void insertProduct(String name, double quantity, double price) {
+        productList.addProduct(name, quantity, price);
     }
 
     /** Add a new client to the warehouse */
@@ -50,13 +46,18 @@ public ProductList getProductList(){
 	return ProductList.getProductList();
 }
 
+public Client searchClient(String id){
+    
+    return clientList.getClient(id);
+}
+
 public ClientList getClientList(){
 	return ClientList.getAllClients2();
 }
     /** Process an order from a client */
     public void processOrder(String clientId, String productId, int quantity) {
         Product product = productList.search(productId);
-        Client client = clientList.search(clientId);
+        Client client = clientList.getClient(clientId);
 
         if (product == null || client == null) {
             System.out.println("Invalid client or product ID.");
@@ -104,7 +105,7 @@ public ClientList getClientList(){
 
     /** Fulfill waitlist for a specific product */
     public void processWaitlist(Product product) {
-        int availableQty = product.getStock();
+        double availableQty = product.getStock();
         List<WaitlistItem> waitlist = product.getWaitlist();
 
         if (availableQty <= 0 || waitlist.isEmpty()) {
@@ -115,7 +116,7 @@ public ClientList getClientList(){
 
         while (iterator.hasNext() && availableQty > 0) {
             WaitlistItem item = iterator.next();
-            int need = item.getQuantity();
+            double need = item.getQuantity();
 
             if (availableQty >= need) {
                 // Fully fulfill this waitlist entry
@@ -163,7 +164,7 @@ public ClientList getClientList(){
 
     /** Generate an invoice for a client */
     public Invoice generateInvoice(String clientId, Map<Product, Integer> productMap) {
-        Client client = clientList.search(clientId);
+        Client client = clientList.getClient(clientId);
         if (client == null) {
             System.out.println("Client not found.");
             return null;

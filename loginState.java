@@ -65,6 +65,7 @@ public class loginState extends wareHouseState {
         return instance;
     }
 
+    @Override
     public void run(){
         
         boolean end = false;

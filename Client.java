@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ArrayList;
 public class Client {
     private final String id;
     private final String name;
@@ -41,19 +40,25 @@ public class Client {
     }
 
     // --- Add a transaction ---
-    public void addTransaction(String description, double amount) {
-        transactions.add(new Transaction(description, amount));
+    public void recordTransaction(Transaction newTransaction) {
+        transactions.add(newTransaction);
     }
     
-    // ---print all invoices for debugging or testing ---
+    /* // ---print all invoices for debugging or testing ---
     public void printInvoices() {
         System.out.println("Invoices for client " + name + ":");
         for (Invoice inv : invoices) {
             System.out.println("  " + inv.getId() + " | Total: $" + inv.getTotalCost());
         }
-    }
+    } */
     public void printTransactions() {
-        for (Transaction t : transactions) {
+        System.out.println("Entered Print transactions");
+        if (transactions.isEmpty()){
+            System.out.println("No current transactions");
+        
+        }
+        System.out.println("Transactions for " + name + ":");
+        for(Transaction t : transactions){
             System.out.println(t);
         }
     }
