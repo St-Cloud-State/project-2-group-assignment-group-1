@@ -1,10 +1,10 @@
-package Pro1_Warehouse;
+//package Pro1_Warehouse;
 
-import java.io.Serializable;
+//import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Transaction implements Serializable {
+public class Transaction {
     private static final long serialVersionUID = 1L;
 
     private Date date;          // When it happened

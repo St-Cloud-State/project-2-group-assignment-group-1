@@ -1,8 +1,8 @@
-package Pro1_Warehouse;
-import java.io.Serializable;
+//package Pro1_Warehouse;
+//import java.io.Serializable;
 import java.util.*;
 
-public class Invoice implements Serializable {
+public class Invoice {
     private static final long serialVersionUID = 1L;
     private static int nextId = 1;
 

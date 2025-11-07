@@ -27,47 +27,7 @@ public class Wishlist {
         return true;
     }
 
-    public void processWishlist(){
-        Client clientToProcess = c_list.getClient(clientID);
-             if (wishlist.isEmpty()) {
-                        System.out.println("break1");
-                        break;
-
-                    }
-     for (WishlistItem item : wishlist) {
-
-        Iterator<WishlistItem> iterator = wantedItems.iterator();
-        while (iterator.hasNext()) {
-            WishlistItem item = iterator.next();
-            Product product = p_list.search(item.getItemName());
-            
-            if (product == null) {
-                System.out.println("Product not found: " + item.getItemName());
-                continue;
-            }
-            
-         if (product.getStock() >= qty) {
-                            product.setStock(product.getStock() - qty);
-                            clientToProcess.addToBalance((float) (-totalCost));
-                        } else {
-                            int available = (int) product.getStock();
-                            int waitQty = qty - available;
-
-                            if (available > 0) {
-                                product.setStock(0);
-                                clientToProcess.addToBalance((float) (-(available * product.getPrice())));
-                            }
-                            Waitlist waitlist_temp = product.getWaitlist();
-                            waitlist_temp.addItem(clientToProcess.getId(), product.getID(), waitQty);
-                        }
-                    }
-
-                    wishlist.clear();
-                    System.out.println("Wishlist processed");
-                    break;
-
-
-    }
+   
     public ArrayList<WishlistItem> getList() {
         return this.wantedItems;
     }

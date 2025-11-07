@@ -38,10 +38,10 @@ public class ClerkState extends wareHouseState {
                     addClient();
                     break;
                 case "2":
-                    warehouse.getProductList().printProduct();
+                    warehouse.showProducts();
                     break;
                 case "3":
-                    warehouse.getClientList().Print_ClientList();
+                    warehouse.showClients();
                     break;
                 case "4":
                     showClientsWithBalance();
@@ -70,7 +70,7 @@ public class ClerkState extends wareHouseState {
         String id = scanner.nextLine();
 
         Client newClient = new Client(id, name, 0);
-        boolean added = warehouse.getClientList().addClient(newClient);
+        boolean added = warehouse.insertClient(name, id);
 
         if (added)
             System.out.println("Client added successfully: " + newClient);
@@ -80,7 +80,8 @@ public class ClerkState extends wareHouseState {
 
     private void showClientsWithBalance() {
         System.out.println("\nClients with outstanding balance:");
-        for (Client c : warehouse.getClientList().getAllClients()) {
+        ClientList tempc_list = warehouse.getClientList();
+        for (Client c : tempc_list ) {
             if (c.getBalance() < 0)
                 System.out.println(c);
         }

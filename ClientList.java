@@ -32,9 +32,9 @@ public class ClientList {
         return null; // not found
     }
 
-    public List<Client> getAllClients() {
-        return clients;
-    }
+   // public List<Client> getAllClients() {
+   //     return clients;
+   // }
     public Iterator getAllClients2() {
     return clients.iterator();
     }

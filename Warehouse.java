@@ -1,7 +1,7 @@
 /**
  * @author Bryan Erickson, Jiali Zhao
  */
-package Pro1_Warehouse;
+//package Pro1_Warehouse;
 
 import java.io.*;
 import java.util.*;
@@ -29,23 +29,30 @@ public class Warehouse {
     // ---------------- Core Functionalities ----------------
 
     /** Add a new product to the warehouse */
-    public Product insertProduct(String name, int quantity, double price) {
+    public Product insertProduct(String name, double quantity, double price) {
         Product product = new Product(name, quantity, price);
-        if (productList.addProduct(product)) {
+        if (productList.addProduct(name, quantity, price)) {
             return product;
         }
         return null;
     }
 
     /** Add a new client to the warehouse */
-    public Client insertClient(String name, String address, String phone) {
-        Client client = new Client(name, address, phone);
+    public boolean insertClient(String name, String id) {
+        Client client = new Client(name, id, 50);
         if (clientList.addClient(client)) {
-            return client;
+            return true;
         }
-        return null;
+        return false;
     }
+//needed maybe verify later
+public ProductList getProductList(){
+	return ProductList.getProductList();
+}
 
+public ClientList getClientList(){
+	return ClientList.getAllClients2();
+}
     /** Process an order from a client */
     public void processOrder(String clientId, String productId, int quantity) {
         Product product = productList.search(productId);
