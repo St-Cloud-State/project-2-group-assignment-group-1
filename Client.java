@@ -4,7 +4,8 @@ public class Client {
     private final String name;
     private Wishlist wishlist;
     private float balance;
-    private final ArrayList<Transaction> transactions;
+    private List<Transaction> transactions = new ArrayList<>();
+    private List<Invoice> invoices = new ArrayList<>();
 
     public Client(String id, String name, float startingBalance) {
         this.id = id;
@@ -32,18 +33,25 @@ public class Client {
         return balance;
     }
 
-    public void recordTransaction(Transaction newTransaction){
-        this.transactions.add(newTransaction);
+     // --- Add a new invoice ---
+    public void addInvoice(Invoice invoice) {
+        invoices.add(invoice);
     }
 
-    public void printTransactions(){
-        if (transactions.isEmpty()){
-            System.out.println("No current transactions");
-        
+    // --- Add a transaction ---
+    public void addTransaction(String description, double amount) {
+        transactions.add(new Transaction(description, amount));
+    }
+    
+    // ---print all invoices for debugging or testing ---
+    public void printInvoices() {
+        System.out.println("Invoices for client " + name + ":");
+        for (Invoice inv : invoices) {
+            System.out.println("  " + inv.getId() + " | Total: $" + inv.getTotalCost());
         }
-
-        System.out.println("Transactions for " + name + ":");
-        for(Transaction t : transactions){
+    }
+    public void printTransactions() {
+        for (Transaction t : transactions) {
             System.out.println(t);
         }
     }
@@ -66,3 +74,4 @@ public class Client {
         return "Client id = " + id + " name = " + name + " balance = " + balance;
     }
 }
+
