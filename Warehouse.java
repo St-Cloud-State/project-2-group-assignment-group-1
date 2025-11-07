@@ -43,7 +43,7 @@ public class Warehouse {
     }
 //needed maybe verify later
 public ProductList getProductList(){
-	return ProductList.getProductList();
+	return productList;
 }
 
 public Client searchClient(String id){
@@ -52,7 +52,7 @@ public Client searchClient(String id){
 }
 
 public ClientList getClientList(){
-	return ClientList.getAllClients2();
+	return clientList;
 }
     /** Process an order from a client */
     public void processOrder(String clientId, String productId, int quantity) {
