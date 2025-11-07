@@ -163,7 +163,6 @@ if( currentState == 3 ){
     Client =false;
     }
 }
-
 states[currentState].run();
 }
 // stops the program
