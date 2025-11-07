@@ -64,7 +64,7 @@ public ClientList getClientList(){
             return;
         }
 
-        int available = product.getStock();
+        double available = product.getStock();
 
         // Prepare a map for shipped items (for invoice generation)
         Map<Product, Integer> shippedItems = new LinkedHashMap<>();
@@ -78,9 +78,9 @@ public ClientList getClientList(){
         else if (available > 0) {
             // Partial fulfillment → ship available items and waitlist the rest
             product.setStock(0);
-            shippedItems.put(product, available);
+            shippedItems.put(product, (int)available);
 
-            int remaining = quantity - available;
+            double remaining = quantity - available;
             product.addWaitlistItem(client.getId(), remaining);
 
             System.out.println(
@@ -90,7 +90,7 @@ public ClientList getClientList(){
         } 
         else {
             // None available → entire order goes to waitlist
-            product.addWaitlistItem(client, quantity);
+            product.addWaitlistItem(client.getId(), quantity);
             System.out.println(
                 "All " + quantity + " units of " + product.getName() +
                 " waitlisted for " + client.getName()
@@ -121,7 +121,7 @@ public ClientList getClientList(){
             if (availableQty >= need) {
                 // Fully fulfill this waitlist entry
                 Map<Product, Integer> shippedItems = new LinkedHashMap<>();
-                shippedItems.put(product, need);
+                shippedItems.put(product, (int)need);
                 generateInvoice(item.getClientId(), shippedItems);
 
                 availableQty -= need;
@@ -129,10 +129,10 @@ public ClientList getClientList(){
             } else {
                 // Partially fulfill
                 Map<Product, Integer> shippedItems = new LinkedHashMap<>();
-                shippedItems.put(product, availableQty);
+                shippedItems.put(product, (int)availableQty);
                 generateInvoice(item.getClientId(), shippedItems);
 
-                item.setQuantity(need - availableQty);
+                item.setQuantity((int)need - (int)availableQty);
                 availableQty = 0;
             }
         }

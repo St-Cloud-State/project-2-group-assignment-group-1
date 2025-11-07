@@ -52,8 +52,8 @@ public class Product {
     }
 
     // Add a client to this product’s waitlist
-    public void addWaitlistItem(String clientId, int quantity) {
-        waitlist.addItem(clientId, this.id, quantity);
+    public void addWaitlistItem(String clientId, double quantity) {
+        waitlist.addItem(clientId, this.id, (int)quantity);
     }
 
     // Print product info
