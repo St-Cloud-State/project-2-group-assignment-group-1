@@ -36,14 +36,14 @@ public String getUser(){
 }
 
 // Used to find out if the user is a clerk pretending to be a client
-public boolean isClerk()
+public boolean isManager()
 {
-    if(Clerk){
-        System.out.println("User was a clerk");
+    if(Manager){
+        System.out.println("User was a manager");
         return true;
     }
     else{
-        System.out.println("User wasn't a clerk");
+        System.out.println("User wasn't a manager");
         return false;
     }
     
@@ -175,7 +175,7 @@ states[currentState].run();
 public static wareHouseContext instance() {
     if (context == null) {
        System.out.println("calling constructor");
-      wareHouseContext = new wareHouseContext();
+      context = new wareHouseContext();
     }
     return context;
   }

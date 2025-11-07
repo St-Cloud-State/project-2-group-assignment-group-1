@@ -1,12 +1,12 @@
 /**
  * @author Bryan Erickson, Jiali Zhao
  */
-//package Pro1_Warehouse;
+package Pro1_Warehouse;
 
 import java.io.*;
 import java.util.*;
 
-public class Warehouse implements Serializable {
+public class Warehouse {
     private static Warehouse warehouse; // singleton instance
 
     private ProductList productList;
