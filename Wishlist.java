@@ -27,7 +27,10 @@ public class Wishlist {
         return true;
     }
 
-    public void processWishlist()
+    public void processWishlist(){
+
+        
+    }
     public ArrayList<WishlistItem> getList() {
         return this.wantedItems;
     }
