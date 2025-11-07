@@ -61,14 +61,14 @@ public class Waitlist {
         }
     }
 
-    /**
-     * Simulates generating an invoice.
-     * In your real system, this should connect to your Invoice/Warehouse class.
-     */
-    private void generateInvoice(String clientId, String productId, int qty) {
-        System.out.println("Invoice generated → Client: " + clientId +
-                ", Product: " + productId + ", Quantity: " + qty);
-    }
+    // /**
+    //  * Simulates generating an invoice.
+    //  * In your real system, this should connect to your Invoice/Warehouse class.
+    //  */
+    // private void generateInvoice(String clientId, String productId, int qty) {
+    //     System.out.println("Invoice generated → Client: " + clientId +
+    //             ", Product: " + productId + ", Quantity: " + qty);
+    // }
 }
 
 

@@ -1,27 +1,28 @@
 /**
- * @author Bryan Erickson
+ * @author Bryan Erickson, Jiali Zhao
  */
-public class Warehouse{
+//package Pro1_Warehouse;
 
+import java.io.*;
+import java.util.*;
 
-private static Warehouse warehouse;
-private ClientList c_list = new ClientList();
+public class Warehouse implements Serializable {
+    private static Warehouse warehouse; // singleton instance
 
-ProductList p_list = new ProductList();
-//private Waitlist waitlist = new Waitlist();
+    private ProductList productList;
+    private ClientList clientList;
 
-private Warehouse(){
-    Client testClient = new Client("101", "Bob", 50);
-    c_list.addClient(testClient);
+    // Private constructor for singleton
+    private Warehouse() {
+        productList = ProductList.instance();
+        clientList = ClientList.instance();
+    }
 
-   
-    p_list.addProduct("p1", 5.25, 10);
-}
-
-public static Warehouse instance(){
-    if(warehouse == null){
-        return (warehouse = new Warehouse());
-    }else{
+    // Singleton accessor
+    public static Warehouse instance() {
+        if (warehouse == null) {
+            warehouse = new Warehouse();
+        }
         return warehouse;
     }
 
@@ -36,8 +37,5 @@ public ProductList getProductList(){
     return p_list;
 }
 
-public ClientList getClientList()
-{
-    return c_list;
-}
+
 }
