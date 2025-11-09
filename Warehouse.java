@@ -106,7 +106,7 @@ public ClientList getClientList(){
     /** Fulfill waitlist for a specific product */
     public void processWaitlist(Product product) {
         double availableQty = product.getStock();
-        List<WaitlistItem> waitlist = product.getWaitlist();
+        List<WaitlistItem> waitlist = product.getWaitlist().getItems(); // 
 
         if (availableQty <= 0 || waitlist.isEmpty()) {
             return; // Nothing to process

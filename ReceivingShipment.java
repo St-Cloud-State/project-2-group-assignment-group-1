@@ -20,8 +20,7 @@ public class ReceivingShipment {
         System.out.println("Old stock: " + oldStock);
 
         // calling the processWaitlist function for later implementation of waitlist
-        product.processWaitlist(qty);
-
+        Warehouse.instance().processWaitlist(product);
         System.out.println("New stock: " + product.getStock());
     }
 

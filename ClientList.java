@@ -44,6 +44,9 @@ public class ClientList {
             System.out.println(cli.next());
         }
     }
+    public List<Client> getAllClients() {
+    return clients;
+}
 
     @Override
     public String toString() {

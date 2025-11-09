@@ -81,7 +81,7 @@ public class ClerkState extends wareHouseState {
     private void showClientsWithBalance() {
         System.out.println("\nClients with outstanding balance:");
         ClientList tempc_list = warehouse.getClientList();
-        for (Client c : tempc_list ) {
+        for (Client c : tempc_list.getAllClients()) {
             if (c.getBalance() < 0)
                 System.out.println(c);
         }

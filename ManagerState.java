@@ -95,7 +95,7 @@ public class ManagerState extends wareHouseState {
         System.out.print("Enter quantity received: ");
         int qty = Integer.parseInt(scanner.nextLine());
 
-        p.processWaitlist(qty); // fulfills first, then updates stock
+        Warehouse.instance().processWaitlist(p); 
         System.out.println("Shipment processed. Updated stock: " + p.getStock());
     }
 
