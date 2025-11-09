@@ -69,7 +69,7 @@ public class ClerkState extends wareHouseState {
         String id = scanner.nextLine();
 
         Client newClient = new Client(id, name, 0);
-        boolean added = warehouse.insertClient(name, id);
+        boolean added = warehouse.insertClient(id, name);
 
         if (added)
             System.out.println("Client added successfully: " + newClient);
