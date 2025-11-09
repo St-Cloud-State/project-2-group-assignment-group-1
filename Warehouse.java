@@ -34,7 +34,7 @@ public class Warehouse {
 
     /** Add a new client to the warehouse */
     public boolean insertClient(String name, String id) {
-        Client client = new Client(name, id, 50);
+        Client client = new Client(id, name, 50);
         if (clientList.addClient(client)) {
             return true;
         }
