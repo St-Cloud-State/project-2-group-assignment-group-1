@@ -67,8 +67,11 @@ public class ManagerState extends wareHouseState {
         System.out.print("Enter product stock: ");
         double stock = Double.parseDouble(scanner.nextLine());
 
-        Product p = warehouse.getProductList().addProduct(name, price, stock);
-        System.out.println("Product added: " + p);
+        ProductList allProductList = Warehouse.instance().getProductList();
+        
+        allProductList.addProduct(name, price, stock);
+
+        System.out.println("Product added: " + name);
     }
 
     private void displayWaitlist() {
@@ -95,7 +98,7 @@ public class ManagerState extends wareHouseState {
         System.out.print("Enter quantity received: ");
         int qty = Integer.parseInt(scanner.nextLine());
 
-        Warehouse.instance().processWaitlist(p); 
+        Warehouse.instance().processWaitlist(p,qty); 
         System.out.println("Shipment processed. Updated stock: " + p.getStock());
     }
 

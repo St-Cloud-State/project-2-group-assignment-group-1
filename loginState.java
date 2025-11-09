@@ -49,13 +49,13 @@ public class loginState extends wareHouseState {
     //Function for going to the clerk state
     private void clerk() {
         System.out.println("You are a clerk");
-        //!!!Add transtions once code is done!!!
+        wareHouseContext.instance().changeState(2);
     }
 
     //Fucntion for goin to manager state
     private void manager() {
         System.out.println("You are a manager");
-        //!!!Add transtions once code is done!!!
+        wareHouseContext.instance().changeState(3);
     }
 
     public static loginState instance() {

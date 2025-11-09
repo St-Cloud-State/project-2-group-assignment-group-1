@@ -3,7 +3,6 @@
  */
 //package Pro1_Warehouse;
 
-import java.io.*;
 import java.util.*;
 
 public class Warehouse {
@@ -14,8 +13,8 @@ public class Warehouse {
 
     // Private constructor for singleton
     private Warehouse() {
-        /* productList = ProductList.instance();
-        clientList = ClientList.instance(); */
+        productList = new ProductList();
+        clientList = new ClientList();
     }
 
     // Singleton accessor
@@ -104,11 +103,12 @@ public ClientList getClientList(){
     }
 
     /** Fulfill waitlist for a specific product */
-    public void processWaitlist(Product product) {
-        double availableQty = product.getStock();
+    public void processWaitlist(Product product,int qty) {
+        double availableQty = product.getStock() + qty;
         List<WaitlistItem> waitlist = product.getWaitlist().getItems(); // 
 
-        if (availableQty <= 0 || waitlist.isEmpty()) {
+        if (waitlist.isEmpty()) {
+            product.setStock(availableQty);
             return; // Nothing to process
         }
 
@@ -157,7 +157,7 @@ public ClientList getClientList(){
         System.out.println("Added quantity: " + qty);
 
         // Now process waitlist for this product and update stock again
-        processWaitlist(product);
+        processWaitlist(product,qty);
 
         System.out.println("New stock after fulfilling waitlist: " + product.getStock());
     }
