@@ -53,9 +53,7 @@ public class ClerkState extends wareHouseState {
                     becomeClient();
                     break;
                 case "7":
-                    System.out.println("Logging out...");
-                    wareHouseContext.instance().changeState(0); // back to login
-                    running = false;
+                    logout();
                     break;
                 default:
                     System.out.println("Invalid choice.");
@@ -102,6 +100,18 @@ public class ClerkState extends wareHouseState {
         System.out.println("Updated balance: " + client.getBalance());
     }
 
+    private void logout(){
+
+       if(!(wareHouseContext.instance().isManager())){
+        //Transitions back to login state
+        wareHouseContext.instance().changeState(0);
+       }
+       //!!!This probably doesn't work yet, will need the full warehouseContext to be able to transistion back to the clerk state!!!
+       //!!!Transitions to clerk state (once all the code it avalible)!!!
+       else if (wareHouseContext.instance().isManager()) {
+           wareHouseContext.instance().changeState(3);
+       }
+    }
     private void becomeClient() {
         System.out.print("Enter Client ID to act as: ");
         String clientId = scanner.nextLine();
