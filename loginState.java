@@ -85,25 +85,25 @@ public class loginState extends wareHouseState {
     private void manager() {
         System.out.println("You are a manager");
 Scanner clerkScanner =  wareHouseContext.instance().scanner;
-        System.out.println("Enter 'Manager' to login as a clerk");
+        System.out.println("Enter 'Manager' to login as a Manager");
         
         String userId = clerkScanner.next();
 
-        System.out.println("Enter the clerk password (Manger) as well:");
+        System.out.println("Enter the Manager password (Manger) as well:");
         
         String login = clerkScanner.next();
 
         SecuritySystem checkPassword = new SecuritySystem(userId, login);
 
         if(checkPassword.verifyPassword()){
-            System.out.println("Clerk Found");
+            System.out.println("Manager Found");
             wareHouseContext.instance().setLogin(login);
             wareHouseContext.instance().setUser(userId);
             
             //Moves the fsm to the manager state
             wareHouseContext.instance().changeState(3);
         }else{
-            System.out.println("Clerk not found");
+            System.out.println("Manager not found");
             //If manager is not found, the fsm will error out, this causes it (can be changed if needed)
              wareHouseContext.instance().changeState(0);
         }
