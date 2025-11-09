@@ -139,18 +139,15 @@ public class clientState extends wareHouseState {
     public void logout() {
        int currentState = wareHouseContext.instance().getState();
 
-       if(currentState == 1){
+       if(!(wareHouseContext.instance()).isClerk()){
         //Transitions back to login state
         wareHouseContext.instance().changeState(0);
        }
        //!!!This probably doesn't work yet, will need the full warehouseContext to be able to transistion back to the clerk state!!!
        //!!!Transitions to clerk state (once all the code it avalible)!!!
-
-       /* else if (currentState == 2) {
+       else if (wareHouseContext.instance().isClerk()) {
            wareHouseContext.instance().changeState(2);
-       } */
-
-       //!!!Uncomment once the above can be implemented!!!
+       }
 
     }
 
