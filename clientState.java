@@ -137,7 +137,6 @@ public class clientState extends wareHouseState {
 
     //Logs the user out to either the login state or the clerk state
     public void logout() {
-       int currentState = wareHouseContext.instance().getState();
 
        if(!(wareHouseContext.instance()).isClerk()){
         //Transitions back to login state
