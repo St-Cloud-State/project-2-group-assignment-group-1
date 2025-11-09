@@ -45,7 +45,7 @@ public class loginState extends wareHouseState {
         }else{
             System.out.println("Client not found");
             //If client is not found, the fsm will error out, this causes it (can be changed if needed)
-             wareHouseContext.instance().changeState(0);
+          //   wareHouseContext.instance().changeState(0);
         }
     }
 
