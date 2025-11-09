@@ -1,3 +1,4 @@
+
 /**
  * @author Bryan Erickson, Jiali Zhao
  */
@@ -28,13 +29,12 @@ public class Warehouse {
     // ---------------- Core Functionalities ----------------
 
     /** Add a new product to the warehouse */
-    public void insertProduct(String name, double quantity, double price) {
-        productList.addProduct(name, quantity, price);
+   public void insertProduct(String name, double quantity, double price) {
+        productList.addProduct(name, price, quantity);
     }
-
     /** Add a new client to the warehouse */
     public boolean insertClient(String name, String id) {
-        Client client = new Client(id, name, 50);
+        Client client = new Client(name, id, 50);
         if (clientList.addClient(client)) {
             return true;
         }

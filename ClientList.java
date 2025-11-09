@@ -16,6 +16,7 @@ public class ClientList {
         // prevent duplicate IDs
         for (Client c : clients) {
             if (c.getId().equals(client.getId())) {
+                System.out.println("There is already a client with this ID");
                 return false;
             }
         }

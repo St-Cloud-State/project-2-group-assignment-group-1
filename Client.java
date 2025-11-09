@@ -6,7 +6,7 @@ public class Client {
     private Wishlist wishlist;
     private float balance;
     private List<Transaction> transactions = new ArrayList<>();
-    private List<Invoice> invoices = new ArrayList<>();
+    private final List<Invoice> invoices = new ArrayList<>();
 
     public Client(String id, String name, float startingBalance) {
         this.id = id;

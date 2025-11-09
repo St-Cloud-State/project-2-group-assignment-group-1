@@ -67,9 +67,10 @@ public class ManagerState extends wareHouseState {
         System.out.print("Enter product stock: ");
         double stock = Double.parseDouble(scanner.nextLine());
 
-        ProductList allProductList = Warehouse.instance().getProductList();
-        
-        allProductList.addProduct(name, price, stock);
+        // ProductList allProductList = Warehouse.instance().getProductList();
+
+        // allProductList.addProduct(name, price, stock);
+        warehouse.insertProduct(name, stock, price);
 
         System.out.println("Product added: " + name);
     }
@@ -89,19 +90,17 @@ public class ManagerState extends wareHouseState {
     private void receiveShipment() {
         System.out.print("Enter product name: ");
         String name = scanner.nextLine();
-        Product p = warehouse.getProductList().search(name);
-        if (p == null) {
-            System.out.println("Product not found.");
-            return;
-        }
+        // Product p = warehouse.getProductList().search(name);
+        // if (p == null) {
+        //     System.out.println("Product not found.");
+        //     return;
+        // }
 
         System.out.print("Enter quantity received: ");
         int qty = Integer.parseInt(scanner.nextLine());
 
-        Warehouse.instance().processWaitlist(p,qty); 
-        System.out.println("Shipment processed. Updated stock: " + p.getStock());
-    }
-
+    warehouse.receiveShipment(name, qty);
+}
     private void becomeClerk() {
         System.out.println("Switching to clerk view...");
         wareHouseContext.instance().setLogin("0");
